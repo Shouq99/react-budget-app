@@ -1,8 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-
 type IncomeType ={
-    id:string;
+    id?:string;
     source: string;
     amount: number;
     date: string;
@@ -16,18 +15,15 @@ const IncomeForm = () => {
     const [incomes, setIncomes]= useState<IncomeType[]>([]);
 
     const handleSourceChange = (event: ChangeEvent <HTMLInputElement>) => {
-        const {value} = event.target;
-        setSource(value);
+        setSource(event.target.value);
 
-    } 
+    };
      const handleAmountChange = (event: ChangeEvent <HTMLInputElement>) => {
-        const {value} = event.target;
-        setAmount(Number(value));
-    } 
+        setAmount(Number(event.target.value));
+    };
      const handleDateChange = (event: ChangeEvent <HTMLInputElement>) => {
-        const {value} = event.target;
-        setDate(value);
-    }
+        setDate(event.target.value);
+    };
 
     const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
@@ -38,9 +34,8 @@ const IncomeForm = () => {
         date: date,
     };
 
-    setIncomes((prevIncomes) => {
-        return [...prevIncomes, income];
-    });
+    setIncomes((prevIncomes) => [...prevIncomes, income]);
+    
 
     setSource("");
     setAmount(0);
