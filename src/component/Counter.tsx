@@ -15,10 +15,11 @@ const Counter = () => {
   return(
   <div>
     <h2>Count : {count}</h2>
-    <button onClick={handleIncrement}disabled={count === 5 ? true : false}>
+
+    <button className='cont' onClick={handleIncrement}disabled={count === 5 ? true : false}>
         +</button>
-    <button onClick={handleReset}>0</button>
-    <button onClick={handleDecremented} disabled={count === -5 ? true : false}>
+    <button  className='cont' onClick={handleReset}>0</button>
+    <button  className='cont'onClick={handleDecremented} disabled={count === -5 ? true : false}>
         
         -</button>
   </div>

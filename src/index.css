@@ -58,7 +58,11 @@ justify-content: center;
 }
 
 
+.cont{
+width: 60px;
+border-radius: 2px;
 
+}
 
 
 .card {

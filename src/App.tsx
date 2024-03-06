@@ -1,6 +1,6 @@
 import './App.css';
 import Counter from './component/Counter';
-import IncomeForm from './component/incomeForm';
+import IncomeForm from './component/IncomeForm';
 import ExpenseForm from './component/ExpenseForm';
 import TargetForSaving from './component/TargetForSaving';
 import TranferForSaving from './component/TransferForSaving';
@@ -12,7 +12,7 @@ function App() {
     
 <div className="container">
   <div className="card">
-{/* <Counter/> */}
+ <Counter/> 
 <IncomeForm/>
 </div>
 <div className="card">
