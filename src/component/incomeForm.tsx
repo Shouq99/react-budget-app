@@ -1,5 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import {toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 type IncomeType ={
     id?:string;
     source: string;
@@ -35,7 +37,8 @@ const IncomeForm = () => {
     };
 
     setIncomes((prevIncomes) => [...prevIncomes, income]);
-    
+    toast.success("new income is added");
+
 
     setSource("");
     setAmount(0);
@@ -63,10 +66,17 @@ const IncomeForm = () => {
         </form>
 
         <ul>
-            {incomes.map((income) => {
-                return <li key={income.id}>
-                    {income.source}: {income.amount}EUR on {income.date}</li>;
-            })}
+            {incomes.length> 0 ?(
+           incomes.map((income) => {
+                return (
+                <li key={income.id}>
+                    {income.source}: {income.amount}EUR on {income.date}
+                    </li>
+                );
+            })
+            ) : (
+                <p>No income source </p>
+            )}
         </ul>
         </div>
         

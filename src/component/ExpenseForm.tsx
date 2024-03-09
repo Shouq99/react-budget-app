@@ -1,5 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import {toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 type ExpenseType ={
     id?:string;
@@ -35,7 +37,7 @@ const ExpenseForm = () => {
         };
     
         setExpenses((prevExpenses) => [...prevExpenses, expense]);
-        
+        toast.success("new expense is added");
     
         setSource("");
         setAmount(0);
