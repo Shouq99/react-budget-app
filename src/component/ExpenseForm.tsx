@@ -9,12 +9,25 @@ type ExpenseType ={
     amount: number;
     date: string;
 };
-const ExpenseForm = () => {
+
+type ExpenseFromProps  ={
+    onGetTotalExpenseAmount: (amount: number) => void;
+};
+
+export const ExpenseForm = (props: ExpenseFromProps) => {
     
     const [source, setSource]= useState('');
     const [amount, setAmount]= useState(0);
     const [date, setDate]= useState('');
     const [expense, setExpenses]= useState<ExpenseType[]>([]);
+
+    const totalAmount = expense.reduce(
+        (total, currentValue) => total + currentValue.amount,
+0
+);
+ props.onGetTotalExpenseAmount(totalAmount);
+
+
 
     const handleSourceChange = (event: ChangeEvent <HTMLInputElement>) => {
         setSource(event.target.value);

@@ -1,7 +1,13 @@
 import React, { ChangeEvent, FormEvent, useCallback, useState } from 'react';
 
 type TargetForSavingProps ={
-    onGetSavingAmount: (amount: number) => void;}
+    onGetSavingAmount: (amount: number) => void;
+    totalIncomeAmount: number;
+    totalExpenseAmount: number;
+};
+   
+
+
 
 export const TranferForSaving = (props:TargetForSavingProps) => {
 
@@ -19,7 +25,9 @@ setAmount(Number (event.target.value));
     return (
 
         <div>
-                <p>Curent balance : 0 </p>
+                <h2>
+                    Curent balance:{props.totalIncomeAmount - props.totalExpenseAmount}  
+                </h2>
 
         <form onSubmit={handleSubmit}>
            <div className='form-field'>

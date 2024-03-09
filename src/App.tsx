@@ -10,30 +10,50 @@ import { useState } from 'react';
 
 function App() {
 const [savingAmount, setSavingAmount] = useState(0); 
+const [totalIncomeAmount, setTotalIncomeAmount] = useState(0); 
+const [totalExpenseAmount, setTotalExpenseAmount] = useState(0); 
+
  const getSavingAmount =(amount: number) => {
     setSavingAmount(amount);
   };
+
+    const getTotalIncomeAmount = (amount: number)=>{
+      setTotalIncomeAmount(amount);
+    };
+      const getTotalExpenseAmount = (amount: number)=>{
+      setTotalExpenseAmount(amount);
+    };
+
+
   return (
-    <div>    <h1>budget-app</h1>
+    <>
+      <h1>budget-app</h1>
     
 <div className="container">
   <div className="card">
+
  {/* <Counter/>  */}
-<IncomeForm/>
+ <p>Total Income Amount: {totalIncomeAmount}</p>
+<IncomeForm onGetTotalIncomeAmount={getTotalIncomeAmount}/>
 </div>
 <div className="card">
 
-   <ExpenseForm/>
+   <ExpenseForm onGetTotalExpenseAmount={getTotalExpenseAmount}/>
    <ToastContainer/>
    </div>
 
    <div className="card">
    <TargetForSaving savingAmount={savingAmount}/> 
    </div>  <div className="card">
-   <TranferForSaving onGetSavingAmount={getSavingAmount}/>
+   <TranferForSaving 
+   onGetSavingAmount={getSavingAmount}
+   totalIncomeAmount= {totalIncomeAmount}
+   totalExpenseAmount= {totalExpenseAmount}
+   />
    </div>
-   </div>
-    </div>
+   </div> 
+    </>
+
   );
 }
 

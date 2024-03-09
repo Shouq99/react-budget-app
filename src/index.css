@@ -22,7 +22,7 @@ code {
 }
 .container{
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* see notes below */
+  grid-template-columns: repeat(2, 1fr); /* see notes below */
   grid-auto-rows:auto;
   grid-gap: 2rem;
 }
@@ -66,6 +66,16 @@ border-radius: 2px;
 
 
 .card {
+  background-color: #2e4554;
+  padding:16px;
+  border-radius: 15px;
+  cursor: pointer;
+  position: relative;
+  transition: box-shadow 0.25s;
+  text-align: left;
+}
+
+.card_content {
   background-color: #2e4554;
   padding:16px;
   border-radius: 15px;

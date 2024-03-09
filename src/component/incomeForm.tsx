@@ -9,12 +9,20 @@ type IncomeType ={
     date: string;
 };
 
-const IncomeForm = () => {
+type IncomeFormProps = {
+    onGetTotalIncomeAmount: (amount: number) => void ;}
 
+    export const IncomeFrom = (props: IncomeFormProps) =>{
     const [source, setSource]= useState<string>('');
     const [amount, setAmount]= useState<number>(0);
     const [date, setDate]= useState<string>('');
     const [incomes, setIncomes]= useState<IncomeType[]>([]);
+
+    const totalAmount = incomes.reduce(
+        (total, currentValue) => total + currentValue.amount,
+0
+);
+props.onGetTotalIncomeAmount(totalAmount);
 
     const handleSourceChange = (event: ChangeEvent <HTMLInputElement>) => {
         setSource(event.target.value);
@@ -39,6 +47,11 @@ const IncomeForm = () => {
     setIncomes((prevIncomes) => [...prevIncomes, income]);
     toast.success("new income is added");
 
+    const totalAmount = incomes.reduce(
+        (total, currentValue) => total + currentValue.amount,
+        0
+    );
+    console.log(totalAmount);
 
     setSource("");
     setAmount(0);
@@ -69,7 +82,8 @@ const IncomeForm = () => {
             {incomes.length> 0 ?(
            incomes.map((income) => {
                 return (
-                <li key={income.id}>
+
+                <li   key={income.id}>
                     {income.source}: {income.amount}EUR on {income.date}
                     </li>
                 );
@@ -81,8 +95,7 @@ const IncomeForm = () => {
         </div>
         
     );
+            };
 
-
-};
-
-export default IncomeForm;
+        
+export default IncomeFrom;
