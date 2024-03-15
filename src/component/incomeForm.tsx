@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import {toast} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 type IncomeType ={
-    id?:string;
+    id:string;
     source: string;
     amount: number;
     date: string;
@@ -58,6 +58,12 @@ props.onGetTotalIncomeAmount(totalAmount);
     setDate("");
     };
 
+
+    const deleteAnIncome = (id: string) => {
+      const filteredIncomes = incomes.filter((income) => income.id !== id);
+      setIncomes(filteredIncomes);
+    };
+
     return (
         <div>
         <form onSubmit={handleSubmit}>
@@ -85,6 +91,9 @@ props.onGetTotalIncomeAmount(totalAmount);
 
                 <li   key={income.id}>
                     {income.source}: {income.amount}EUR on {income.date}
+                    <button onClick={() => deleteAnIncome(income.id)}> 
+                  Delete
+                </button>
                     </li>
                 );
             })
@@ -93,9 +102,9 @@ props.onGetTotalIncomeAmount(totalAmount);
             )}
         </ul>
         </div>
-        
+
     );
             };
 
-        
-export default IncomeFrom;
+
+export default IncomeFrom

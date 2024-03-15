@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+<style>
+  
+
+.float-left {
+    float: left;
+    width: 300px;
+}
+
+
+.details {
+    padding: 26px;
+    background: white;
+    border-top: 1px dashed #c3c3c3;
+}
+
+.tinfo {
+    font-size: 0.5em;
+    font-weight: 300;
+    color: #c3c3c3;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 7px 0;
+}
+
+.tdata {
+    font-size: 0.7em;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.5px;
+    margin: 7px 0;
+}
+
+.name {
+    font-size: 1.3em;
+    font-weight: 300;
+}
+
+.link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #55C9E6;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.7px;
+    font-size: 0.7em;
+}
+
+.hqr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    margin: 0px auto;
+}
+
+
+
+.column {
+    display: table-cell;
+    padding: 37px 0px;
+}
+
+
+
+#qrcode img {
+    height: 70px;
+    width: 70px;
+    margin: 0 auto;
+}
+
+.masinfo {
+    display: block;
+}
+
+
+
+</style>
+<body>
+
+
+<div id="divToPrint" hidden>
+    <img src="image/logo3.png" width="200px"  height="100px">
+    
+    <div class="hqr">
+        <div class="details">
+
+    <p class="h4">
+        name_face
+    </p>
+        <div class="details">
+        </div>
+
+    <p class="h4">
+                num_clinic
+            </p>
+        <div class="details">
+            </div>
+        <p class="h1">
+            num_clinic الرقم:
+
+        </p>
+            
+        <div class="details">
+        </div>
+    <p class="h4">
+        num_witing عدد المنتظرين:
+
+           </p>
+
+        <div class="details">
+        </div>
+    <p class="h4">
+        datetin
+            </p>
+        <div class="details">
+        </div>
+
+        </div>
+       </div>
+</div>
+
+            </div>
+            <input type="button" value="click" onclick="printDiv()">
+            <iframe id="ifrmPrint" hidden></iframe>
+
+
+            <script>
+
+function printDiv() {
+    try {
+        var oIframe = document.getElementById('ifrmPrint');
+        var oContent = document.getElementById('divToPrint').innerHTML;
+        var oDoc = (oIframe.contentWindow || oIframe.contentDocument);
+        if (oDoc.document) oDoc = oDoc.document;
+        oDoc.write('<head><title>title</title>');
+        oDoc.write('</head><body style="text-align: center"; onload="this.focus(); this.print();">');
+        oDoc.write(oContent + '</body>');
+        oDoc.close();
+    } catch (e) {
+        self.print();
+    }
+}
+            </script>
+</body>
+</html>

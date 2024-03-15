@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+</head>
+<style>
+
+
+
+table, th, td {
+  border: solid 1px #000;
+  padding: 10px;
+}
+
+table {
+    border-collapse:collapse;
+    caption-side:bottom;
+}
+
+caption {
+  font-size: 16px;
+  font-weight: bold;
+  padding-top: 5px;
+}
+
+
+</style>
+
+<body>
+    
+<h1>عرض المواعيد</h1>
+<label>رقم الملف</label>
+
+<ssdiv class="row">
+
+    <div class="col">
+        <input type="text" id="fileN" onkeyup="filenum()" placeholder="بحث"
+               title="Type in a name">
+        </div>
+        <label>رقم الجوال</label>
+    <div class="col-2">
+
+<input type="text" id="MobileN" onkeyup="MobileNumber()" placeholder="بحث"
+       title="Type in a name">
+    </div>
+
+
+ 
+
+    <div class="container">
+
+<table id="table">
+
+    <thead>
+        <tr>
+            <th>
+                رقم الملف
+            </th>
+
+           
+                <th>
+                    @Html.DisplayNameFor(model => model.ApptType)
+                </th>
+                <th scope="col">
+                @Html.DisplayNameFor(model => model.PatientType)
+            </th>
+            <th>
+                اسم المريض 
+            </th>
+            <th scope="col">
+                رقم العيادة
+            </th>
+                <th scope="col">
+            تاريخ الموعد
+            </th>
+            <th>
+          
+                     بداية الوقت
+            </th>
+                <th scope="col">
+                نهاية الوقت
+            </th>
+
+                <th scope="col">
+                @Html.DisplayNameFor(model => model.ConfirmedBy)
+            </th>
+
+                <th scope="col">
+                @Html.DisplayNameFor(model => model.BookedBy)
+            </th>
+
+                <th scope="col">
+                رقم الجوال
+            </th>
+
+                <th scope="col">
+                    بداية الوقت 
+            </th>
+
+                <th scope="col">
+                نهاية الوقت
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                @Html.DisplayFor(modelItem => item.FileNumber)
+            </td>
+                        <td>
+                @Html.DisplayFor(modelItem => item.ApptType)
+            </td>
+                        <td>
+                        @Html.DisplayFor(modelItem => item.PatientType)
+            </td>
+                        <td>
+                        @Html.DisplayFor(modelItem => item.PatientName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClinicNum)
+            </td>
+                        <td>
+                       
+                @Html.DisplayFor(modelItem => item.ApptDate)
+            </td>
+                        <td>
+                        @Html.DisplayFor(modelItem => item.StartTime)
+            </td>
+                        <td>
+                @Html.DisplayFor(modelItem => item.EndTime)
+            </td>
+                        <td>
+
+                @Html.DisplayFor(modelItem => item.ConfirmedBy)
+            </td>
+
+                        <td>
+                @Html.DisplayFor(modelItem => item.BookedBy)
+            </td>
+
+                        <td>
+                @Html.DisplayFor(modelItem => item.MobileNumber)
+
+                        <td>
+                @Html.DisplayFor(modelItem => item.StartWindow)
+            </td>
+                        <td>
+                @Html.DisplayFor(modelItem => item.EndWinodw)
+            </td>
+        </tr>
+
+        </tr>
+}
+    </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+
+
+</body>
+</html>

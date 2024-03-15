@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	
+
+</head>
+
+<body>
+	
+
+
+	<!-- File input field -->
+	<p>Upload an xlsx</p>
+	<input type="file" id="file"
+		onchange="return fileValidation()" />
+
+	<script>
+		function fileValidation() {
+			var fileInput =
+				document.getElementById('file');
+			
+			var filePath = fileInput.value;
+		
+			// Allowing file type
+			var allowedExtensions =
+       /(\.xlx|\.xlsx)$/i;
+			
+			if (!allowedExtensions.exec(filePath)) {
+				alert('Invalid file type');
+				fileInput.value = '';
+				return false;
+			}
+		}
+	</script>
+</body>
+
+</html>
