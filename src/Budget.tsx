@@ -1,6 +1,6 @@
  import { ToastContainer, toast } from 'react-toastify';
  import 'react-toastify/dist/ReactToastify.css';
- import './App.css';
+ import './Budget.css';
  import Counter from './component/Counter';
  import IncomeForm from './component/IncomeForm';
  import ExpenseForm from './component/ExpenseForm';
@@ -8,7 +8,7 @@
  import TranferForSaving from './component/TransferForSaving';
  import { useState } from 'react';
 
- function App() {
+ function Budget() {
  const [savingAmount, setSavingAmount] = useState(0); 
  const [totalIncomeAmount, setTotalIncomeAmount] = useState(0); 
  const [totalExpenseAmount, setTotalExpenseAmount] = useState(0); 
@@ -56,4 +56,4 @@
   );
 }
 
- export default App;
+ export default Budget;

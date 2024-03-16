@@ -1,17 +1,19 @@
-// import React from 'react';
-// import NewUser from './component/NewUser';
+ import React from 'react';
+ import NewUser from './component/NewUser';
 
-// const App2 = ()=>{
-//     return (
-//     <div>
-//         <div className='container'>
+ const App2 = ()=>{
+    return (
+     <div>
+         <div className='container'>
 
-//         <div className="card">
-//         <NewUser/>
+        <div className="card">
+        <NewUser/>
 
-//         </div>
-//         </div>
-//     </div>
-//     );};
+       </div>
+       </div>
 
-// export default App2;
+       
+    </div>
+    );};
+
+ export default App2;
